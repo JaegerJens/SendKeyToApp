@@ -15,11 +15,11 @@ namespace SendKeyToApp {
 
         public static PlayerController FindYoutubePlayer() {
             var windows = new WindowsService();
-            foreach(var process in windows.getApplications()) {
+            foreach(var process in windows.GetApplications()) {
                 if (process.ProcessName != ChromeProcessName) {
                     continue;
                 }
-                var title = windows.getWindowTitle(process);
+                var title = windows.GetWindowTitle(process);
                 if (title.Contains(YoutubePlayerName)) {
                     return new PlayerController(process);
                 }
